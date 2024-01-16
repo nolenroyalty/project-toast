@@ -9,6 +9,10 @@ function ToastProvider({ children }) {
     setToasts((toasts) => toasts.filter((t) => t.key !== key));
   }
 
+  function dismissAllToasts() {
+    setToasts([]);
+  }
+
   function addToast({ message, variant }) {
     const key = crypto.randomUUID();
     const toast = { key, message, variant };
@@ -16,7 +20,9 @@ function ToastProvider({ children }) {
   }
 
   return (
-    <ToastContext.Provider value={{ toasts, hideToast, addToast }}>
+    <ToastContext.Provider
+      value={{ toasts, hideToast, addToast, dismissAllToasts }}
+    >
       {children}
     </ToastContext.Provider>
   );
