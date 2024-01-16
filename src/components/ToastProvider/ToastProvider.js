@@ -9,9 +9,9 @@ function ToastProvider({ children }) {
     setToasts((toasts) => toasts.filter((t) => t.key !== key));
   }
 
-  function dismissAllToasts() {
+  const dismissAllToasts = React.useCallback(() => {
     setToasts([]);
-  }
+  }, []);
 
   function addToast({ message, variant }) {
     const key = crypto.randomUUID();
