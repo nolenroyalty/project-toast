@@ -9,20 +9,9 @@ function ToastShelf() {
   const { toasts, hideToast, dismissAllToasts } =
     React.useContext(ToastContext);
 
-  useEscape(dismissAllToasts);
-  // React.useEffect(() => {
-  //   function handleKeyDown(e) {
-  //     if (e.key === "Escape") {
-  //       dismissAllToasts();
-  //     }
-  //   }
-
-  //   window.addEventListener("keydown", handleKeyDown);
-
-  //   return () => {
-  //     window.removeEventListener("keydown", handleKeyDown);
-  //   };
-  // }, [dismissAllToasts]);
+  useEscape((_e) => {
+    dismissAllToasts();
+  });
 
   return (
     <ol
